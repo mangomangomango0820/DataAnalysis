@@ -34,8 +34,3 @@ for i in range(1124):
     url = list[i].xpath("/html/body/div[@id='appMountPoint']/div[@class='basicLayout browseTitlesGallery dark']/div[@class='nm-collections-page']/main[@class='nm-collections-container with-blur']/section[@class='nm-collections-row'][*]/div[@class='nm-content-horizontal-row']/ul[@class='nm-content-horizontal-row-item-container']/li[@class='nm-content-horizontal-row-item'][*]/a/@href")[i]
     JD['url'] = url
     print(JD)
-
-
-
-
-
