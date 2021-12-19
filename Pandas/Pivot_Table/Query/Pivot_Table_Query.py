@@ -4,13 +4,7 @@
 # File      : Pivot_Table_Query.py
 # Tool      : PyCharm
 
-
 import pandas as pd
-import npm
-
-
-'''
-'''
 
 names = ['user', 'uid', 'title', 'docid', 'time', 'status', 'score', 'qudao', 'kffs', 'province', 'city']
 data = pd.read_excel(io='/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/RawData.xlsx', names=names)
