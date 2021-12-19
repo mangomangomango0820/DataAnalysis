@@ -13,7 +13,7 @@ import npm
 '''
 
 names = ['user', 'uid', 'title', 'docid', 'time', 'status', 'score', 'qudao', 'kffs', 'province', 'city']
-data = pd.read_excel(io='RawData.xlsx', names=names)
+data = pd.read_excel(io='/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/RawData.xlsx', names=names)
 '''
 print(data.columns)
 Index(['user', 'uid', 'title', 'docid', 'time', 'status', 'score', 'qudao',
@@ -64,8 +64,3 @@ MultiIndex([('docid',        1),
             ('score', 'SumAll')],
            names=[None, 'kffs'])
 '''
-
-
-
-x = pivot.query('province == "湖北省"')
-print(x)

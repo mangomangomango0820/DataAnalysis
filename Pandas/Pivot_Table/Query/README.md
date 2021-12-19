@@ -209,7 +209,7 @@ _1_ <br>
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-云南省      7213895.0     8  0    2.0   2.2  0.0    2.2
+云南省    7213895.0     8  0    2.0   2.2  0.0    2.2
 ```
 
 _1< <All_
@@ -217,7 +217,7 @@ _1< <All_
 // select not all but more than 1 row with level 0 index '云南省' <br>
 // select level 0 index '云南省' first and then level1 index '125825.0' & '7213895.0' <br>
 ```angular2html
-      docid           score            
+          docid           score            
 kffs          1  2 SumAll     1    2 SumAll
 uid                                        
 125825.0      1  0    NaN   0.0  0.0    NaN
@@ -226,8 +226,6 @@ uid
 <br>
 
 ###### *iloc*
->>here choose Nr.0 and -2 row as target rows 
-
 _All_ 
 - [x] pivot.iloc[:-1] <br>
 // select all rows 
@@ -235,9 +233,9 @@ _All_
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-云南省      125825.0      1  0    NaN   0.0  0.0    NaN
+云南省    125825.0      1  0    NaN   0.0  0.0    NaN
 ...                  ... ..    ...   ...  ...    ...
-黑龙江省     7213860.0     6  0    1.0   1.5  0.0    1.5
+黑龙江省  7213860.0     6  0    1.0   1.5  0.0    1.5
 
 [278 rows x 6 columns]
 ```
@@ -249,7 +247,7 @@ _1_
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-黑龙江省     7216985.0     4  0    1.0   1.8  0.0    1.8
+黑龙江省  7216985.0     4  0    1.0   1.8  0.0    1.8
 ```
 
 _1< <All_
@@ -259,9 +257,9 @@ _1< <All_
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-云南省      6331762.0     4  0    1.0   1.4  0.0    1.4
+云南省    6331762.0     4  0    1.0   1.4  0.0    1.4
          7119058.0     2  0    1.0   1.5  0.0    1.5
-四川省      6181664.0     2  0    1.0   1.5  0.0    1.5
+四川省    6181664.0     2  0    1.0   1.5  0.0    1.5
 ```
 
 - [x] ```pivot.iloc[::150]``` <br>
@@ -270,8 +268,8 @@ province uid
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-云南省      125825.0      1  0    NaN   0.0  0.0    NaN
-湖南省      6971814.0     2  0    1.0   1.0  0.0    1.0
+云南省    125825.0      1  0    NaN   0.0  0.0    NaN
+湖南省    6971814.0     2  0    1.0   1.0  0.0    1.0
 ```
 
 - [x] ```pivot.iloc[-5,-2]``` <br>
@@ -280,7 +278,7 @@ province uid
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-黑龙江省     7213955.0     2  0    1.0   1.1  0.0    1.1
+黑龙江省  7213955.0     2  0    1.0   1.1  0.0    1.1
          7216948.0     4  0    1.0   1.5  0.0    1.5
          7216960.0     6  0    2.0   2.0  0.0    2.0
 ```
@@ -294,10 +292,10 @@ _1< <All_
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-湖北省      7099896.0     3  0    1.0   1.1  0.0    1.1
+湖北省    7099896.0     3  0    1.0   1.1  0.0    1.1
 ...
          7216989.0     4  0    1.0   1.5  0.0    1.5
-湖南省      6226377.0     2  0    1.0   1.0  0.0    1.0
+湖南省    6226377.0     2  0    1.0   1.0  0.0    1.0
 ...
          7211310.0     2  0    NaN   0.0  0.0    NaN
 ```
@@ -311,7 +309,7 @@ _All_
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
-湖北省      7099896.0     3  0    1.0   1.1  0.0    1.1
+湖北省    7099896.0     3  0    1.0   1.1  0.0    1.1
          7178220.0     2  0    1.0   1.1  0.0    1.1
          7216989.0     4  0    1.0   1.5  0.0    1.5
 ```
@@ -319,19 +317,19 @@ province uid
 
 
 #### Columns & Rows
-##### *loc* 
-###### *Single Index*
+###### *loc*
+_Single Index_
 - [x] ```pivot['docid'].loc[['黑龙江省']]``` <br>
 // select column level 0 index 'docid' and row level 0 index '黑龙江省'
 ```angular2html
 kffs                1  2  SumAll
 province uid                    
-黑龙江省     6981849.0  2  0     NaN
+黑龙江省  6981849.0  2  0     NaN
 ...
          7216985.0  4  0     1.0
 ```
 
-###### *Multi Index*
+_Multi Index_
 - [x] ```pivot[('docid', 'SumAll')].loc[('黑龙江省', 7216985.0)]```, _or_,
 <br> ```pivot[('docid', 'SumAll')][('黑龙江省', 7216985.0)]```       
 // select column MultiIndex ('docid', 'SumAll') and row MultiIndex ('黑龙江省', 7216985.0) 
