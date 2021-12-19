@@ -119,7 +119,7 @@ MultiIndex([('docid',        1),
 
 ##### *2.* 
 ###### *Label*
-####### _All_
+_All_
 - [x] ```pivot[('score', )]``` _or_, ```pivot['score']``` <br>
 // select all columns with MultiIndex ('score', ), or, level 0 index 'score'
 ```angular2html
@@ -134,12 +134,12 @@ SumAll              269.0  52.5   321.5
 [279 rows x 3 columns]
 ```
 
--[x] ```pivot[('score', )].columns```
+- [x] ```pivot[('score', )].columns```
 ```angular2html
 Index([1, 2, 'SumAll'], dtype='object', name='kffs')
 ```
 
-####### _1_
+_1_
 - [x] ```pivot[('score', 2)]```, _or_, ```pivot['score'][2]``` <br>
 // select 1 column with MultiIndex ('score', 2), or, with level 0 index 'score' first and then level1 index 2
 ```angular2html
@@ -152,8 +152,8 @@ SumAll                   52.5
 Name: (score, 2), Length: 279, dtype: float64
 ```
 
-####### _1< <All_ <br>
--[x] ```pivot[('score',)][[1,'SumAll']]```, _or_, ```pivot['score'][[1,'SumAll']]``` <br>
+_1< <All_ <br>
+- [x] ```pivot[('score',)][[1,'SumAll']]```, _or_, ```pivot['score'][[1,'SumAll']]``` <br>
 // select level 0 index 'score' first and then level1 index '1' & 'SumAll'
 ```angular2html
 kffs                    1  SumAll
@@ -202,8 +202,8 @@ Index([ 125825.0, 6331762.0, 6724869.0, 7088853.0, 7119058.0, 7119448.0,
       dtype='object', name='uid')
 ```
 
-_1_
--[x] ```pivot.loc[[('云南省', 7213895.0)]]``` <br>
+_1_ <br>
+- [x] ```pivot.loc[[('云南省', 7213895.0)]]``` <br>
 // select 1 row with level 0 index '云南省' first and then level1 index '7213895.0'
 ```angular2html
                    docid           score            
@@ -319,7 +319,8 @@ province uid
 
 
 #### Columns & Rows
-###### Labels
+##### *loc* 
+###### *Single Index*
 - [x] ```pivot['docid'].loc[['黑龙江省']]``` <br>
 // select column level 0 index 'docid' and row level 0 index '黑龙江省'
 ```angular2html
@@ -330,6 +331,7 @@ province uid
          7216985.0  4  0     1.0
 ```
 
+###### *Multi Index*
 - [x] ```pivot[('docid', 'SumAll')].loc[('黑龙江省', 7216985.0)]```, _or_,
 <br> ```pivot[('docid', 'SumAll')][('黑龙江省', 7216985.0)]```       
 // select column MultiIndex ('docid', 'SumAll') and row MultiIndex ('黑龙江省', 7216985.0) 
