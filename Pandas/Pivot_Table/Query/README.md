@@ -26,7 +26,7 @@
 
 
 
-# Data Analysis
+# Pivot_Table | Query
 <font color=#999AAA >Make data analysis with a local file, e.g excel, with pandas, numpy, matplotlib and etc.
 <br>
 
