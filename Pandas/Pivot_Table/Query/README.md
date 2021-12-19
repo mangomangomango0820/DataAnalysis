@@ -152,7 +152,7 @@ SumAll                   52.5
 Name: (score, 2), Length: 279, dtype: float64
 ```
 
-####### _1< <All_
+####### _1< <All_ <br>
 -[x] ```pivot[('score',)][[1,'SumAll']]```, _or_, ```pivot['score'][[1,'SumAll']]``` <br>
 // select level 0 index 'score' first and then level1 index '1' & 'SumAll'
 ```angular2html
@@ -183,8 +183,8 @@ MultiIndex([(   '云南省',  125825.0),
 
 ##### *2.* 
 ###### *loc*
-####### _All_
--[x] ```pivot.loc['云南省']``` <br>
+_All_
+- [x] ```pivot.loc['云南省']``` <br>
 // select all rows with level 0 index '云南省'
 ```angular2html
           docid           score            
@@ -195,14 +195,14 @@ uid
 7213895.0     8  0    2.0   2.2  0.0    2.2
 ```
 
--[x] ```pivot.loc['云南省'].index```
+- [x] ```pivot.loc['云南省'].index```
 ```angular2html
 Index([ 125825.0, 6331762.0, 6724869.0, 7088853.0, 7119058.0, 7119448.0,
        7166576.0, 7190777.0, 7208339.0, 7213895.0],
       dtype='object', name='uid')
 ```
 
-####### _1_
+_1_
 -[x] ```pivot.loc[[('云南省', 7213895.0)]]``` <br>
 // select 1 row with level 0 index '云南省' first and then level1 index '7213895.0'
 ```angular2html
@@ -212,10 +212,10 @@ province uid
 云南省      7213895.0     8  0    2.0   2.2  0.0    2.2
 ```
 
-####### _1< <All_
+_1< <All_
 - [x] ```pivot.loc['云南省'].loc[[125825.0, 7213895.0]]``` <br>
 // select not all but more than 1 row with level 0 index '云南省' <br>
-// select level 0 index '云南省' first and then level1 index '125825.0' & '7213895.0'
+// select level 0 index '云南省' first and then level1 index '125825.0' & '7213895.0' <br>
 ```angular2html
       docid           score            
 kffs          1  2 SumAll     1    2 SumAll
@@ -226,9 +226,10 @@ uid
 <br>
 
 ###### *iloc*
->>here choose Nr.0 and -2 row as target rows
-####### _All_
--[x] pivot.iloc[:-1] <br>
+>>here choose Nr.0 and -2 row as target rows 
+
+_All_ 
+- [x] pivot.iloc[:-1] <br>
 // select all rows 
 ```angular2html
                    docid           score            
@@ -241,8 +242,8 @@ province uid
 [278 rows x 6 columns]
 ```
 
-####### _1_
--[x] pivot.iloc[-2] <br>
+_1_
+- [x] pivot.iloc[-2] <br>
 // select Nr.-2 row
 ```angular2html
                    docid           score            
@@ -251,8 +252,8 @@ province uid
 黑龙江省     7216985.0     4  0    1.0   1.8  0.0    1.8
 ```
 
-####### _1< <All_
--[x] ```pivot.iloc[[1,4,13]]``` <br>
+_1< <All_
+- [x] ```pivot.iloc[[1,4,13]]``` <br>
 // select discrete rows per requirement, e.g. Nr.1th, 4th, 13th
 ```angular2html
                    docid           score            
@@ -286,8 +287,8 @@ province uid
 <br>
 
 ###### *isin*
-####### 1< <All
--[x] ```pivot[pivot.index.get_level_values(level=0).isin(['湖北省', '湖南省'])]```
+_1< <All_
+- [x] ```pivot[pivot.index.get_level_values(level=0).isin(['湖北省', '湖南省'])]``` <br>
 // select rows with level 0 index in list ['湖北省'， '湖南省']
 ```angular2html
                    docid           score            
@@ -303,8 +304,8 @@ province uid
 <br>
 
 ###### *query*
-####### _All_
--[x] ```pivot.query('province == "湖北省"')``` <br>
+_All_
+- [x] ```pivot.query('province == "湖北省"')``` <br>
 // select all rows with level 0 index '湖北省'
 ```angular2html
                    docid           score            
@@ -318,7 +319,7 @@ province uid
 
 
 #### Columns & Rows
-##### *1.* Labels
+###### Labels
 - [x] ```pivot['docid'].loc[['黑龙江省']]``` <br>
 // select column level 0 index 'docid' and row level 0 index '黑龙江省'
 ```angular2html
