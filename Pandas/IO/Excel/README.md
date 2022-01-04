@@ -60,7 +60,7 @@ with pd.ExcelWriter(
 // Tip: !!! ofc here you are able to write different data into separate sheets
 <br>
 
-> the tree structure of folder should look like this:
-> ![img.png](img.png)
-> the 2 sheets of _> 1 sheet_ should look like this:
-> ![img_1.png](img_1.png)
+> the tree structure of curren working project should look like this:<br><br>
+> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img.png](ScreenShot_README/img.png)
+> the 2 sheets of '2Sheets.xlsx' should look like this: <br><br>
+> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img_1.png.png](ScreenShot_README/img_1.png)
