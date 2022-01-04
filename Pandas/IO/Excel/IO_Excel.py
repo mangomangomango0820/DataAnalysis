@@ -6,6 +6,7 @@
 
 import pandas as pd
 import os
+import zipfile
 
 
 # 1. find or create a directory named 'Dir' in desired path
@@ -46,3 +47,22 @@ with pd.ExcelWriter(
         datetime_format='YYYY-MM-DD') as writer:
     data.to_excel(writer, sheet_name='Sheet-1')
     data.to_excel(writer, sheet_name='Sheet-2')
+
+
+# 4. pack files
+# 4.1 ZipFile
+# 4.1.1 single file
+# generate a zip file named 'output.zip' in desired path 'folder' and save as a variable 'OutputZip';
+# write target file '1Sheet.xlsx' in target path into 'OutputZip' and close it
+OutputZip = zipfile.ZipFile(folder+'/output.zip', 'w')
+OutputZip.write(folder+'/1Sheet.xlsx')
+OutputZip.close()
+
+# 4.1.2 multiple fils in same dir
+# generate a zip file named 'output.zip' in desired path 'folder' and save as a variable 'OutputZip';
+# change working directory to target path, and write target files in current wd into 'OutputZip' and close it
+with zipfile.ZipFile(folder+'/Output.zip', 'w') as OutputZip:
+    os.chdir(folder)
+    OutputZip.write('1Sheet.xlsx')
+    OutputZip.write('2Sheets.xlsx')
+    OutputZip.close()
