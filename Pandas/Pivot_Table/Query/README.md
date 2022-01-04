@@ -56,7 +56,7 @@ index <br>
 
 ## Pivot_Table
 ### Format
-```angular2html
+```python
 pivot_table(
     self,
     values=None,
@@ -74,7 +74,7 @@ pivot_table(
 
 ### Application
 in this case, apply to 'RawData.xlsx':
-```angular2html
+```python
 pivot = data.pivot_table(
     index=['province', 'uid'],
     columns='kffs',
@@ -107,7 +107,7 @@ SumAll               225  41  266.0  269.0  52.5  321.5
 ##### *1.*
 - [x] ```pivot.columns``` <br>
 // level 0 'None', level 1 'kffs'
-```angular2html
+```python
 MultiIndex([('docid',        1),
             ('docid',        2),
             ('docid', 'SumAll'),
@@ -122,7 +122,7 @@ MultiIndex([('docid',        1),
 _All_
 - [x] ```pivot[('score', )]``` _or_, ```pivot['score']``` <br>
 // select all columns with MultiIndex ('score', ), or, level 0 index 'score'
-```angular2html
+```python
 kffs                    1     2  SumAll
 province        uid                           
 云南省      125825.0   0.0   0.0     NaN
@@ -135,14 +135,14 @@ SumAll              269.0  52.5   321.5
 ```
 
 - [x] ```pivot[('score', )].columns```
-```angular2html
+```python
 Index([1, 2, 'SumAll'], dtype='object', name='kffs')
 ```
 
 _1_
 - [x] ```pivot[('score', 2)]```, _or_, ```pivot['score'][2]``` <br>
 // select 1 column with MultiIndex ('score', 2), or, with level 0 index 'score' first and then level1 index 2
-```angular2html
+```python
 province         uid      
 云南省       125825.0      0.0
                           ... 
@@ -155,7 +155,7 @@ Name: (score, 2), Length: 279, dtype: float64
 _1< <All_ <br>
 - [x] ```pivot[('score',)][[1,'SumAll']]```, _or_, ```pivot['score'][[1,'SumAll']]``` <br>
 // select level 0 index 'score' first and then level1 index '1' & 'SumAll'
-```angular2html
+```python
 kffs                    1  SumAll
 province uid                     
 云南省    125825.0     0.0     NaN
@@ -172,7 +172,7 @@ SumAll              269.0   321.5
 ##### *1.*
 - [x] ```pivot.index``` <br>
 // level 0 'province', level 1 'uid'
-```angular2html
+```python
 MultiIndex([(   '云南省',  125825.0),
             ...
             (  '黑龙江省', 7185586.0),
@@ -186,7 +186,7 @@ MultiIndex([(   '云南省',  125825.0),
 _All_
 - [x] ```pivot.loc['云南省']``` <br>
 // select all rows with level 0 index '云南省'
-```angular2html
+```python
           docid           score            
 kffs          1  2 SumAll     1    2 SumAll
 uid                                        
@@ -196,7 +196,7 @@ uid
 ```
 
 - [x] ```pivot.loc['云南省'].index```
-```angular2html
+```python
 Index([ 125825.0, 6331762.0, 6724869.0, 7088853.0, 7119058.0, 7119448.0,
        7166576.0, 7190777.0, 7208339.0, 7213895.0],
       dtype='object', name='uid')
@@ -205,7 +205,7 @@ Index([ 125825.0, 6331762.0, 6724869.0, 7088853.0, 7119058.0, 7119448.0,
 _1_ <br>
 - [x] ```pivot.loc[[('云南省', 7213895.0)]]``` <br>
 // select 1 row with level 0 index '云南省' first and then level1 index '7213895.0'
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -216,7 +216,7 @@ _1< <All_
 - [x] ```pivot.loc['云南省'].loc[[125825.0, 7213895.0]]``` <br>
 // select not all but more than 1 row with level 0 index '云南省' <br>
 // select level 0 index '云南省' first and then level1 index '125825.0' & '7213895.0' <br>
-```angular2html
+```python
           docid           score            
 kffs          1  2 SumAll     1    2 SumAll
 uid                                        
@@ -229,7 +229,7 @@ uid
 _All_ 
 - [x] pivot.iloc[:-1] <br>
 // select all rows 
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -243,7 +243,7 @@ province uid
 _1_
 - [x] pivot.iloc[-2] <br>
 // select Nr.-2 row
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -253,7 +253,7 @@ province uid
 _1< <All_
 - [x] ```pivot.iloc[[1,4,13]]``` <br>
 // select discrete rows per requirement, e.g. Nr.1th, 4th, 13th
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -264,7 +264,7 @@ province uid
 
 - [x] ```pivot.iloc[::150]``` <br>
 // select discrete rows per fixed value, e.g. Nr.0, 150th
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -274,7 +274,7 @@ province uid
 
 - [x] ```pivot.iloc[-5,-2]``` <br>
 // select sequential rows in limited range
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -288,7 +288,7 @@ province uid
 _1< <All_
 - [x] ```pivot[pivot.index.get_level_values(level=0).isin(['湖北省', '湖南省'])]``` <br>
 // select rows with level 0 index in list ['湖北省'， '湖南省']
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -305,7 +305,7 @@ province uid
 _All_
 - [x] ```pivot.query('province == "湖北省"')``` <br>
 // select all rows with level 0 index '湖北省'
-```angular2html
+```python
                    docid           score            
 kffs                   1  2 SumAll     1    2 SumAll
 province uid                                        
@@ -321,7 +321,7 @@ province uid
 _Single Index_
 - [x] ```pivot['docid'].loc[['黑龙江省']]``` <br>
 // select column level 0 index 'docid' and row level 0 index '黑龙江省'
-```angular2html
+```python
 kffs                1  2  SumAll
 province uid                    
 黑龙江省  6981849.0  2  0     NaN
@@ -333,7 +333,14 @@ _Multi Index_
 - [x] ```pivot[('docid', 'SumAll')].loc[('黑龙江省', 7216985.0)]```, _or_,
 <br> ```pivot[('docid', 'SumAll')][('黑龙江省', 7216985.0)]```       
 // select column MultiIndex ('docid', 'SumAll') and row MultiIndex ('黑龙江省', 7216985.0) 
-```angular2html
+```python
 1.0
 ```
+
+- [x] ```pivot.loc[pivot.index[-2], pivot.columns[2]]```
+// select column index[-2] ('黑龙江省', 7216985.0), and row index column[2] ('docid', 'SumAll')
+```python
+1.0
+```
+
 <br>
