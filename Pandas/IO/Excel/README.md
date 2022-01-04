@@ -61,6 +61,6 @@ with pd.ExcelWriter(
 <br>
 
 > the tree structure of curren working project should look like this:<br><br>
-> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img.png](ScreenShot_README/img.png)
+> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img.png](ScreenShot_README/img.png) <br>
 > the 2 sheets of '2Sheets.xlsx' should look like this: <br><br>
 > ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img_1.png.png](ScreenShot_README/img_1.png)
