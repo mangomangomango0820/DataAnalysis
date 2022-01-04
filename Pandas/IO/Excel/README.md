@@ -7,7 +7,11 @@
   - [Read](#read)
   - [Write](#write)
     - [*1.* _1 sheet_](#1-_1-sheet_)
-    - [*1.* _> 1 sheet_](#1-_-1-sheet_)
+    - [*2.* _> 1 sheet_](#2-_-1-sheet_)
+  - [Pack](#pack)
+    - [ZipFile](#zipfile)
+      - [*1.* _1 file_](#1-_1-file_)
+      - [*2.* _> 1 files in same folder_](#2-_-1-files-in-same-folder_)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -26,14 +30,13 @@ if not os.path.exists(folder):
 else:
     print(folder + 'Has Existed !!!')
 ```
-
+<br>
 
 ## Read
 ```data = pd.read_excel(io='Pandas/RawData.xlsx')``` <br>
 // speculate the path of target file is 'Pandas/RawData.xlsx'
 // read the content of file as ```data``` '
 <br>
-
 
 ## Write
 ### *1.* _1 sheet_
@@ -62,5 +65,29 @@ with pd.ExcelWriter(
 
 > the tree structure of curren working project should look like this:<br><br>
 > ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img.png](ScreenShot_README/img.png) <br>
+>
 > the 2 sheets of '2Sheets.xlsx' should look like this: <br><br>
-> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img_1.png.png](ScreenShot_README/img_1.png)
+> ![/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/ScreenShot_README/img_1.png.png](ScreenShot_README/img_1.png)<br>
+
+## Pack
+### ZipFile
+#### *1.* _1 file_
+```python
+OutputZip = zipfile.ZipFile(folder+'/output.zip', 'w')
+OutputZip.write(folder+'/1Sheet.xlsx')
+OutputZip.close()
+```
+// generate a zip file ```output.zip``` in desired path ```folder``` and save as a variable ```OutputZip```;<br>
+// write target file ```1Sheet.xlsx``` in target path into ```OutputZip``` and close it in the end
+<br>
+
+#### *2.* _> 1 files in same folder_
+```python
+with zipfile.ZipFile(folder+'/Output.zip', 'w') as OutputZip:
+    os.chdir(folder)
+    OutputZip.write('1Sheet.xlsx')
+    OutputZip.write('2Sheets.xlsx')
+    OutputZip.close()
+```
+// generate a zip file ```output.zip``` in desired path ```folder``` and save as a variable ```OutputZip```;<br>
+// change working directory to target path, and write target files in current wd into ```OutputZip``` and close it in the end 
