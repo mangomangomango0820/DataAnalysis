@@ -1,7 +1,7 @@
 # _*_coding : UTF_8 _*_
 # Author    : Xueshan Zhang
 # Date      : 2022/1/4 7:59 PM
-# File      : IO_Excel.py
+# File      : Excel.py
 # Tool      : PyCharm
 
 import pandas as pd
@@ -9,7 +9,7 @@ import os
 
 
 # 1. find or create a directory named 'Dir' in desired path
-folder = "/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Dir"
+folder = "/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/Dir"
 if not os.path.exists(folder):
     os.makedirs(folder)
 
