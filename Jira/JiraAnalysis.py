@@ -210,4 +210,3 @@ if __name__ == '__main__':
     toPath = './'+date+'output'
     shutil.make_archive(base_name=toPath, format='zip', root_dir=path)
     logging.info(str(datetime.datetime.now()) + ' > Pack folder into zip file.')
-
