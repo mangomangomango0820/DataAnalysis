@@ -12,7 +12,6 @@ purpose: 1. clean and process dataset, get data in the format of [x, y, z, ID]
 
 Reference:
 https://stackoverflow.com/questions/71359492/extract-an-ndarray-from-a-np-void-array/71360637#71360637
-
 '''
 
 import numpy as np

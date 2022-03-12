@@ -1,15 +1,23 @@
 # _*_coding : UTF_8 _*_
 # Author    : Xueshan Zhang
-# Date      : 2022/1/10 8:23 PM
-# File      : JiraAnalysis.py
+# Date      : 2022/3/12 5:25 PM
+# File      : JiraReport_Plot.py
 # Tool      : PyCharm
 
 '''
-1. Connect with Jira server;
-2. fetch faw data;
-3. process data;
-4. plot: pie plot & stacked bar plot;
-5. zip
+1. connect with jira server, go to 2;
+2.
+2.1 dump raw data in json [optional];
+2.2 fetch raw data in dataframe, go to 2.3;
+2.3 formatting per requirement， go to 3;
+2.4 export raw data as xlsx [optional];
+3.
+3.1 import raw data from RawData.xlsx, go to 3.2;
+3.2 process data by Groupby and pivot_table methods, go to 4;
+4.
+4.1 Pie Plot;
+4.2 Stacked Bar Plot;
+5. zip all excel files and plots for tracking in the future;
 '''
 
 import time, datetime, os, json, shutil
@@ -49,7 +57,7 @@ if __name__ == '__main__':
     if not os.path.exists(path):
         os.makedirs(path)
 
-    ###### 1. connect with jira server
+    ###### 1. connect with jira server, go to 2;
     try:
         server = JIRA(server=address, basic_auth=(username, password))
     except Exception as e:
@@ -66,7 +74,7 @@ if __name__ == '__main__':
         f.write(DumpIssues)
         f.close()
 
-    ###### 2.2 fetch raw data in dataframe
+    ###### 2.2 fetch raw data in dataframe, go to 2.3;
     RawData = []
     for each in server.search_issues(jql_str=jql, maxResults=maxResults):
         issue = server.issue(each.key, expand='changelog')
@@ -85,7 +93,7 @@ if __name__ == '__main__':
     data = pd.DataFrame(RawData)
     logging.info(str(datetime.datetime.now()) + ' Fetch Raw data.')
 
-    ###### 2.3 formatting per requirement
+    ###### 2.3 formatting per requirement, go to 3;
     ### tips: data['A'] -> data['A'].to_list()
     #         series    -> list
     ### tips: data['B'].str.split(',', 1, expand=False).str[0]
@@ -108,10 +116,10 @@ if __name__ == '__main__':
 
 
     ###### 3. 
-    ###### 3.1 import raw data from RawData.xlsx
+    ###### 3.1 import raw data from RawData.xlsx, go to 3.2;
     data = pd.read_excel(path+'/RawData.xlsx', sheet_name='RawData').drop(['Unnamed: 0'], axis=1)
 
-    ###### 3.2 process data by Groupby and pivot_table methods
+    ###### 3.2 process data by Groupby and pivot_table methods, go to 4;
     ###### 3.2.1 multi-index: set time and week as multi-index
     ### tips: week = data.index.isocalendar().week
     data.set_index(['logged'], drop=True, inplace=True)
@@ -205,7 +213,7 @@ if __name__ == '__main__':
     logging.info(str(datetime.datetime.now()) + ' > Stacked Bar Plot for Full Data.')
 
 
-    ###### 5. zip
+    ###### 5. zip all excel files and plots for tracking in the future;
     date = str(time.strftime('%Y-%m-%d',time.localtime(time.time())))
     toPath = './'+date+'output'
     shutil.make_archive(base_name=toPath, format='zip', root_dir=path)

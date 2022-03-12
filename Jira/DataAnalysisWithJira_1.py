@@ -171,7 +171,6 @@ if __name__ == '__main__':
         ('DJ', 'RH'): 'XY',
         ('LL', 'WY', 'XZ'): 'WY',
         ('BW', 'YJ'): 'BW',
-        ...
     }
 
     # generate a mapping dict based on old elements 'creator' and 'reporter' to new element 'group'
