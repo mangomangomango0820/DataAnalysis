@@ -21,7 +21,7 @@ from mpl_toolkits.mplot3d import Axes3D
 
 # 1. data analysis
 # 1.1 load data from .npy file
-DATA = np.load('NumPy_Ex1_3Dscatter/NumPy_Ex1_3Dscatter_ExampleData.npy')
+DATA = np.load('NumPy_Ex1_3Dscatter_ExampleData.npy')
 '''
 [([   2,    2, 1920,  480],) ([   1,    3, 1923,  480],)
  ......
