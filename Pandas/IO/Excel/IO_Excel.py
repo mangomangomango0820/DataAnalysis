@@ -10,14 +10,14 @@ import zipfile
 
 
 # 1. find or create a directory named 'Dir' in desired path
-folder = "/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/IO/Excel/Dir"
+folder = "DataAnalysis/Pandas/IO/Excel/Dir"
 if not os.path.exists(folder):
     os.makedirs(folder)
 
 
-# 2. read from excel in target path 'Pandas/RawData.xlsx'
-# /RawData.xlsx' as Dataframe
-data = pd.read_excel(io='/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/RawData.xlsx')
+# 2. read from excel in target path 'Pandas/IO_RawData.xlsx'
+# /IO_RawData.xlsx' as Dataframe
+data = pd.read_excel(io='IO_RawData.xlsx')
 # ```
 # print(data.head(5))
 #

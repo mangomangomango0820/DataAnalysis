@@ -7,7 +7,7 @@
 import pandas as pd
 
 names = ['user', 'uid', 'title', 'docid', 'time', 'status', 'score', 'qudao', 'kffs', 'province', 'city']
-data = pd.read_excel(io='/Users/xueshanzhang/PycharmProjects/pythonProject1214/DataAnalysis/Pandas/RawData.xlsx', names=names)
+data = pd.read_excel(io='IO_RawData.xlsx', names=names)
 '''
 print(data.columns)
 Index(['user', 'uid', 'title', 'docid', 'time', 'status', 'score', 'qudao',

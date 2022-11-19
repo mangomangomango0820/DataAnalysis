@@ -12,7 +12,7 @@
 2.3 formatting per requirement， go to 3;
 2.4 export raw data as xlsx [optional];
 3.
-3.1 import raw data from RawData.xlsx, go to 3.2;
+3.1 import raw data from IO_RawData.xlsx, go to 3.2;
 3.2 process data by Groupby and pivot_table methods, go to 4;
 4.
 4.1 Pie Plot;
@@ -110,14 +110,14 @@ if __name__ == '__main__':
     logging.info(str(datetime.datetime.now()) + ' > Format data.')
 
     ###### 2.4 export raw data as xlsx [optional]
-    with pd.ExcelWriter(path+'/RawData.xlsx') as writer:
+    with pd.ExcelWriter(path+'/IO_RawData.xlsx') as writer:
         data.to_excel(writer, sheet_name='RawData')
         logging.info(str(datetime.datetime.now()) + ' > Export Raw Data in xlsx.')
 
 
     ###### 3. 
-    ###### 3.1 import raw data from RawData.xlsx, go to 3.2;
-    data = pd.read_excel(path+'/RawData.xlsx', sheet_name='RawData').drop(['Unnamed: 0'], axis=1)
+    ###### 3.1 import raw data from IO_RawData.xlsx, go to 3.2;
+    data = pd.read_excel(path+'/IO_RawData.xlsx', sheet_name='RawData').drop(['Unnamed: 0'], axis=1)
 
     ###### 3.2 process data by Groupby and pivot_table methods, go to 4;
     ###### 3.2.1 multi-index: set time and week as multi-index

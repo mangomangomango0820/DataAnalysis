@@ -239,7 +239,7 @@ if __name__ == '__main__':
 
     ##### 5. zip raw data in 2.1 for tracking in the future;
     toPath = './' + path + '/' + path + '.zip'
-    fromPath = path + '/RawData.xlsx'
+    fromPath = path + '/IO_RawData.xlsx'
     toFolder, toFilename = os.path.split(toPath)
     Export = zipfile.ZipFile(toPath, 'w')
     Export.write(fromPath)
